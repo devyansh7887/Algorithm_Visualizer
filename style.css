@@ -1,0 +1,440 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Welcome Screen */
+.welcome-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.main-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5)); }
+    to { filter: drop-shadow(0 0 30px rgba(118, 75, 162, 0.8)); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 3rem;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 2rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.category-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+.category-btn .icon {
+    font-size: 2rem;
+}
+
+/* Selection Screen */
+.selection-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#categoryTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #667eea;
+}
+
+.algorithm-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.algo-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #667eea;
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.algo-btn:hover {
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Back Button */
+.back-btn {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.back-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Visualization Screen */
+.viz-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.viz-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#algorithmTitle {
+    font-size: 2rem;
+    color: #667eea;
+}
+
+/* Controls */
+.controls {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.control-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+}
+
+.control-item label {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.control-item input[type="range"] {
+    width: 200px;
+    height: 5px;
+    background: #333;
+    outline: none;
+    border-radius: 5px;
+}
+
+.control-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #667eea;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.control-item input[type="number"] {
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #667eea;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Visualization Area */
+.visualization-area {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 400px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Array Visualization */
+.array-container {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 300px;
+    width: 100%;
+    justify-content: center;
+}
+
+.array-bar {
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    flex: 1;
+    transition: all 0.3s ease;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    min-width: 5px;
+    max-width: 50px;
+}
+
+.array-bar.comparing {
+    background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+}
+
+.array-bar.swapping {
+    background: linear-gradient(180deg, #ff6b6b 0%, #ff4757 100%);
+}
+
+.array-bar.sorted {
+    background: linear-gradient(180deg, #4CAF50 0%, #45a049 100%);
+}
+
+.array-bar.found {
+    background: linear-gradient(180deg, #00ff00 0%, #00cc00 100%);
+}
+
+.array-bar.searching {
+    background: linear-gradient(180deg, #ffeb3b 0%, #ffc107 100%);
+}
+
+/* Grid Visualization (for pathfinding) */
+.grid-container {
+    display: grid;
+    gap: 1px;
+    background: #222;
+    padding: 1px;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.grid-cell {
+    width: 25px;
+    height: 25px;
+    background: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.grid-cell.wall {
+    background: #555;
+    animation: wallPlace 0.3s ease;
+}
+
+.grid-cell.start {
+    background: #4CAF50;
+}
+
+.grid-cell.end {
+    background: #ff4757;
+}
+
+.grid-cell.visited {
+    background: #667eea;
+    animation: visitedAnimation 0.5s ease;
+}
+
+.grid-cell.path {
+    background: #ffd700;
+    animation: pathAnimation 0.5s ease;
+}
+
+@keyframes wallPlace {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes visitedAnimation {
+    from { 
+        transform: scale(0.3);
+        background: #764ba2;
+    }
+    to { 
+        transform: scale(1);
+        background: #667eea;
+    }
+}
+
+@keyframes pathAnimation {
+    from { 
+        transform: scale(0.5);
+        background: #ffa500;
+    }
+    to { 
+        transform: scale(1);
+        background: #ffd700;
+    }
+}
+
+/* Complexity Info */
+.complexity-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.complexity-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.complexity-card h3 {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.complexity-card p {
+    font-size: 1.2rem;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Graph Canvas */
+#graphCanvas {
+    max-width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .category-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-item input[type="range"] {
+        width: 100%;
+    }
+
+    .array-bar {
+        min-width: 3px;
+    }
+
+    .grid-cell {
+        width: 20px;
+        height: 20px;
+    }
+}

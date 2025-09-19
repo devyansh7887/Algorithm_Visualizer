@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="screen active">
+        <div class="welcome-container">
+            <h1 class="main-title">Algorithm Visualiser</h1>
+            <p class="subtitle">Choose a category to explore</p>
+            <div class="category-buttons">
+                <button class="category-btn" onclick="showCategoryScreen('searching')">
+                    <span class="icon">🔍</span>
+                    <span>Searching</span>
+                </button>
+                <button class="category-btn" onclick="showCategoryScreen('sorting')">
+                    <span class="icon">📊</span>
+                    <span>Sorting</span>
+                </button>
+                <button class="category-btn" onclick="showCategoryScreen('pathfinding')">
+                    <span class="icon">🗺️</span>
+                    <span>Path Finding</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Algorithm Selection Screen -->
+    <div id="selectionScreen" class="screen">
+        <div class="selection-container">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <h2 id="categoryTitle"></h2>
+            <div id="algorithmList" class="algorithm-list"></div>
+        </div>
+    </div>
+
+    <!-- Visualization Screen -->
+    <div id="visualizationScreen" class="screen">
+        <div class="viz-container">
+            <header class="viz-header">
+                <button class="back-btn" onclick="backToSelection()">← Back</button>
+                <h2 id="algorithmTitle"></h2>
+            </header>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="control-group">
+                    <button id="generateBtn" onclick="generateNewArray()">Generate New Array</button>
+                    <button id="startBtn" onclick="startVisualization()">Start</button>
+                    <button id="pauseBtn" onclick="pauseVisualization()" disabled>Pause</button>
+                    <button id="resetBtn" onclick="resetVisualization()">Reset</button>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-item">
+                        <label for="arraySize">Array Size: <span id="arraySizeValue">50</span></label>
+                        <input type="range" id="arraySize" min="10" max="100" value="50" onchange="updateArraySize()">
+                    </div>
+                    <div class="control-item">
+                        <label for="speed">Speed: <span id="speedValue">50</span>ms</label>
+                        <input type="range" id="speed" min="10" max="1000" value="50" onchange="updateSpeed()">
+                    </div>
+                </div>
+
+                <!-- Search specific controls -->
+                <div id="searchControls" class="control-group" style="display: none;">
+                    <div class="control-item">
+                        <label for="searchValue">Search Value:</label>
+                        <input type="number" id="searchValue" min="1" max="100" value="50">
+                    </div>
+                </div>
+
+                <!-- Pathfinding specific controls -->
+                <div id="pathControls" class="control-group" style="display: none;">
+                    <button onclick="setStartNode()">Set Start</button>
+                    <button onclick="setEndNode()">Set End</button>
+                    <button onclick="toggleWallMode()">Toggle Walls</button>
+                    <button onclick="clearWalls()">Clear Walls</button>
+                </div>
+            </div>
+
+            <!-- Visualization Area -->
+            <div id="visualizationArea" class="visualization-area">
+                <div id="arrayContainer" class="array-container"></div>
+                <div id="gridContainer" class="grid-container" style="display: none;"></div>
+                <canvas id="graphCanvas" style="display: none;"></canvas>
+            </div>
+
+            <!-- Complexity Info -->
+            <div class="complexity-info">
+                <div class="complexity-card">
+                    <h3>Time Complexity</h3>
+                    <p id="timeComplexity">-</p>
+                </div>
+                <div class="complexity-card">
+                    <h3>Space Complexity</h3>
+                    <p id="spaceComplexity">-</p>
+                </div>
+                <div class="complexity-card">
+                    <h3>Comparisons</h3>
+                    <p id="comparisons">0</p>
+                </div>
+                <div class="complexity-card">
+                    <h3>Swaps</h3>
+                    <p id="swaps">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
