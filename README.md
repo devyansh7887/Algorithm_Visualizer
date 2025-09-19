@@ -22,7 +22,7 @@
 
 ## 🚀 Live Demo
 
-> **Try it instantly:** [🔗 Click here to view live demo](#)  
+> **Try it instantly:** [🔗 Click here to view live demo](https://thealgorithmvisualizer.netlify.app/)  
 *(Replace `#` with your deployed link on GitHub Pages or Netlify)*
 
 
